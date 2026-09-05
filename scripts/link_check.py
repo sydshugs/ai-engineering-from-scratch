@@ -284,12 +284,19 @@ def check_url(url: str, timeout: int) -> CheckResult:
             status_code, err = get_status, get_err
 
     if status_code is None:
-        return CheckResult(url=url, status="error", http_status=None, error=err or "unknown")
+        # Only a name-resolution failure proves the host is gone. Timeouts,
+        # refused connections and TLS failures are transient or bot-related.
+        dns_failure = err is not None and ("nodename nor servname" in err or "Name or service not known" in err or "getaddrinfo" in err)
+        if dns_failure:
+            return CheckResult(url=url, status="error", http_status=None, error=err)
+        return CheckResult(url=url, status="unverified", http_status=None, error=err or "unknown")
     if 200 <= status_code < 400:
         return CheckResult(url=url, status="ok", http_status=status_code, error=None)
-    if status_code in (401, 403, 429) or status_code >= 500:
+    if status_code == 404 or status_code == 410:
+        return CheckResult(url=url, status="broken", http_status=status_code, error=f"http {status_code}")
+    if status_code >= 400:
         # The host answered but refused or failed the request: paywalls and
-        # bot blocks (401/403), rate limits (429), transient server errors.
+        # bot blocks (401/403), rate limits (429), other 4xx, server errors.
         # The link is not known to be dead, so report it separately.
         return CheckResult(url=url, status="unverified", http_status=status_code, error=f"http {status_code}")
     return CheckResult(url=url, status="broken", http_status=status_code, error=err or f"http {status_code}")
@@ -416,7 +423,7 @@ def run(args: argparse.Namespace) -> int:
         print(f"requested:   {report.requested}", file=sys.stderr)
         print(f"cache hits:  {report.cached_hits}", file=sys.stderr)
         print(f"skipped:     {len(set(report.skipped))} urls in {len(skip_domains)} domains", file=sys.stderr)
-        print(f"unverified:  {len(report.unverified)} occurrences (401/403/429/5xx; host up, not counted as broken)", file=sys.stderr)
+        print(f"unverified:  {len(report.unverified)} occurrences (non-404 errors, timeouts; not counted as broken)", file=sys.stderr)
         print(f"broken:      {len(report.failed)} occurrences across {len(report.by_file)} files", file=sys.stderr)
         if report.by_file:
             print("", file=sys.stderr)
