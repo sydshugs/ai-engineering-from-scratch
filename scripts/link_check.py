@@ -66,8 +66,13 @@ DEFAULT_SKIP_DOMAINS = (
 PLACEHOLDER_SUFFIXES = ("example.com", "example.net", "example.org", ".example", ".invalid", ".test", "localhost")
 EXCLUDE_DIRS = {".git", "node_modules", "outputs"}
 
-MD_LINK_RE = re.compile(r"\[[^\]]*\]\((<?)(https?://[^\s)>]+)>?\)")
-BARE_URL_RE = re.compile(r"(?<![\w(\[=\"'])(https?://[^\s)\]<>\"'`]+)")
+# URLs may contain one level of balanced parentheses (DOIs such as
+# 10.1016/0010-0277(85)90022-8); an unbalanced ')' still ends the URL.
+_URL_BODY = r"https?://(?:[^\s()<>\]\"'`]|\([^\s()<>]*\))+"
+MD_LINK_RE = re.compile(r"\[[^\]]*\]\((<?)(" + _URL_BODY + r")>?\)")
+BARE_URL_RE = re.compile(r"(?<![\w(\[=\"'])(" + _URL_BODY + r")")
+# Template URLs: a placeholder follows or sits inside the URL.
+TEMPLATE_URL_RE = re.compile(r"<[^>]*>|\{[^}]*\}|YOUR[-_]")
 TRAILING_PUNCT = ".,;:!?)\"'>"
 
 
@@ -172,6 +177,8 @@ def extract_urls(text: str) -> list[tuple[str, int]]:
             out.append((url, lineno))
         masked = MD_LINK_RE.sub(" ", line)
         for m in BARE_URL_RE.finditer(masked):
+            if m.end() < len(masked) and masked[m.end()] in "<{":
+                continue  # `https://host/prefix/<path>`: a template, not a link
             url = strip_trailing_punct(m.group(1))
             key = (lineno, url)
             if key in seen_per_line:
@@ -228,9 +235,10 @@ def domain_of(url: str) -> str:
 
 def should_skip(url: str, skip_domains: set[str]) -> bool:
     domain = domain_of(url)
-    if not domain or "$" in url:
-        # No host (e.g. `http://` in a shell snippet) or an unexpanded shell
-        # variable: not a link anyone can follow, so nothing to check.
+    if not domain or "$" in url or TEMPLATE_URL_RE.search(url):
+        # No host (e.g. `http://` in a shell snippet), an unexpanded shell
+        # variable, or a placeholder such as YOUR-USERNAME or <path>: not a
+        # link anyone can follow, so nothing to check.
         return True
     # Placeholder hosts used in example commands: RFC 2606 reserved names and
     # single-label hostnames (e.g. https://my-otel-collector/) never resolve.
