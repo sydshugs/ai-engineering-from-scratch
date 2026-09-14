@@ -1,0 +1,14 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 1900, "title": "Brand board" },
+    { "file": "Mark.dc.html", "x": 0, "y": 1900, "w": 880, "h": 560, "title": "Mark and lockups" },
+    { "file": "Button.dc.html", "x": 960, "y": 1900, "w": 560, "h": 560, "title": "Co-branded button" },
+    { "file": "AltFerry.dc.html", "x": 0, "y": 2600, "w": 560, "h": 420, "title": "Alternate: Ferry" },
+    { "file": "AltVolley.dc.html", "x": 640, "y": 2600, "w": 560, "h": 420, "title": "Alternate: Volley" }
+  ],
+  "annotations": [
+    { "id": "next-flows", "x": 1520, "y": 0, "w": 300, "text": "Next: the three sides.\nShopper flow, driver flow, retailer flow. One artboard series each, once the name and look are settled." },
+    { "id": "alts-note", "x": 1280, "y": 2600, "w": 260, "text": "Two alternates, sketched only. Comeback is the recommendation. Say the word and either of these gets built out instead." }
+  ],
+  "launch": { "view": "canvas" }
+}
