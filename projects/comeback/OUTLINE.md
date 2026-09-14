@@ -102,12 +102,27 @@ Who owns what:
 
 Why the retailer says yes: they already pay for every unsellable return, then liquidate or destroy it. Comeback does not create that loss. It makes the loss cheaper to carry and recovers value from part of it.
 
-## What Comeback is not
+## How Comeback is different
 
-- **Not a carrier drop-off service.** Uber and DoorDash take prepaid packages to UPS. Comeback takes the item to the store and closes the return.
-- **Not a returns portal.** Loop, Narvar, and Happy Returns manage the return decision. Comeback plugs into them and handles what happens after the decision.
-- **Not a lender.** Comeback does not front refunds at launch. If that ever makes sense, it is a financed product with a partner and loss data behind it.
+Every competitor either moves the box or decides the return. Comeback removes the box, closes the return at the store, and sends back only what the retailer wants. Three axes separate it: where the item goes, who pays, and what happens after the handoff.
+
+| Who | What they do | Where Comeback differs |
+|---|---|---|
+| **Uber Return a Package, DoorDash Package Pickup** | Take a prepaid, sealed package to UPS, FedEx, or USPS. Shopper pays a flat $3 to $5. The refund still waits for the warehouse. | Takes the item unboxed to the store or hub and closes the return there. Retailer pays. Credit at pickup. |
+| **Uber retailer-direct returns (2026)** | Driver returns the item to the retailer, but only for Uber Eats purchases between $20 and $100. | Not tied to one marketplace. Sits inside any retailer's own return flow. |
+| **ReturnQueen** | No box, no label. They collect, pack, and ship it back. Shopper pays per pickup or by subscription. | Retailer-paid and embedded, so it is not a second app the shopper has to trust. Sorts what goes back instead of shipping everything. |
+| **Happy Returns (UPS)** | Box-free, label-free drop-off at Return Bars in stores. | Removes the trip. The shopper stays home. As likely a partner as a competitor. |
+| **Loop, Narvar, ReturnGO** | Returns portals. Manage the decision: eligibility, exchange offers, labels. Move nothing. | Plugs in underneath them and handles the physical leg. Complementary, not competitive. |
+| **Optoro, goTRG** | Grade and route returned goods once they reach a warehouse, at enterprise scale. | Applies the retailer's rules at the doorstep, so unsellable goods never travel to the shelf. This is the year-two overlap: partner or specialize, do not compete head-on. |
+
+What Comeback is not, so the comparison stays honest:
+
+- **Not a carrier drop-off service.** The item goes to the store, not to UPS.
+- **Not a returns portal.** Comeback does not decide the return. It executes it.
+- **Not a lender.** Comeback does not front refunds at launch.
 - **Not a marketplace.** Recovery goes through partners, not a Comeback storefront.
+
+Where Comeback is not different: it does not own a driver fleet, and Uber and DoorDash do. The plan uses a partner fleet at launch and wins on the retailer integration and the counter handoff, not on driving. If Uber widens its retailer-direct returns beyond Uber Eats, the store-handoff advantage narrows and the integration and disposition become the whole moat.
 
 ## Roadmap
 
