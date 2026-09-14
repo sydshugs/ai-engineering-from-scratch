@@ -1,0 +1,85 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 1900,
+      "title": "Brand board"
+    },
+    {
+      "file": "Mark.dc.html",
+      "x": 0,
+      "y": 2040,
+      "w": 880,
+      "h": 560,
+      "title": "Mark and lockups"
+    },
+    {
+      "file": "Button.dc.html",
+      "x": 960,
+      "y": 2040,
+      "w": 560,
+      "h": 560,
+      "title": "Co-branded button"
+    },
+    {
+      "file": "Type.dc.html",
+      "x": 0,
+      "y": 2740,
+      "w": 880,
+      "h": 900,
+      "title": "Type directions"
+    },
+    {
+      "file": "AltFerry.dc.html",
+      "x": 0,
+      "y": 3780,
+      "w": 560,
+      "h": 420,
+      "title": "Alternate: Ferry"
+    },
+    {
+      "file": "AltVolley.dc.html",
+      "x": 640,
+      "y": 3780,
+      "w": 560,
+      "h": 420,
+      "title": "Alternate: Volley"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "next-flows",
+      "x": 1520,
+      "y": 0,
+      "w": 300,
+      "text": "Next: the three sides.\nShopper flow, driver flow, retailer flow. One artboard series each, once the name and look are settled."
+    },
+    {
+      "id": "mark-source",
+      "x": 960,
+      "y": 2740,
+      "w": 300,
+      "text": "Mark v2 is adapted from Hugeicons Refresh01 (MIT licence): stroke 2.4 instead of 1.5, arrow shortened, opening widened so it reads as a c."
+    },
+    {
+      "id": "name-check",
+      "x": 1520,
+      "y": 2740,
+      "w": 300,
+      "text": "Name check, Sept 2026: no exact COMEBACK mark found live in classes 35, 39 or 42 by web search, but comeback.com, .co and .app are taken and a loyalty-software company trades as ComeBack App. Needs a paid clearance search before spending on it."
+    },
+    {
+      "id": "alts-note",
+      "x": 1280,
+      "y": 3780,
+      "w": 260,
+      "text": "Two alternates, sketched only. Comeback is the recommendation. Say the word and either of these gets built out instead."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}
