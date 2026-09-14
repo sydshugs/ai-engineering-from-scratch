@@ -83,7 +83,9 @@ Checked September 2026 by web search only. The USPTO database, Justia and Tradem
 - **ComeBack App** (comebackapp.net) sells white-label loyalty apps to businesses. Same buyer as ours, adjacent service. This is the collision that matters.
 - Domains: comeback.com and comeback.co are a clothing retailer, comeback.app is the loyalty company, comeback.io, comeback.ai and comebackhq.com all resolve. comebackreturns.com had no DNS record, which suggests it is free but does not prove it.
 
-Verdict: usable as a working name, not yet safe to spend on. Get a paid clearance search before printing anything. If it fails, the canvas keeps two alternates.
+Verdict: confirmed by the founders as the working name (September 2026). Still not safe to spend on until a paid clearance search comes back clean. If it fails, the canvas keeps two alternates.
+
+Positioning, business model, and roadmap live in `OUTLINE.md`.
 
 ## Design files
 
